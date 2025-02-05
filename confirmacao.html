@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Compra</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="box has-text-centered">
+                <h1 class="title has-text-success">Compra Confirmada!</h1>
+                <p class="subtitle">Seu ingresso foi gerado com sucesso.</p>
+                <hr>
+                <h2 class="title is-4">Detalhes do Ingresso</h2>
+                <p id="nome-ingresso"><strong>Nome: </strong></p>
+                <p id="info-jogo"><strong>Jogo: </strong></p>
+                <p id="info-data"><strong>Data: </strong></p>
+                <p id="info-local"><strong>Local:</strong></p>
+                <p id="info-totalPago"><strong>Total Pago: R$</strong></p>
+                <p id="info-codigoIngresso"><strong>Código do Ingresso: </strong></p>
+                <hr>
+                <a href="index.html" class="button is-primary">Voltar para a Página Inicial</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Obtém os dados da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const jogo = urlParams.get('jogo');
+        const total = urlParams.get('precoTotal');
+        const nome = urlParams.get('nome');
+        const email = urlParams.get('email');
+        const data = urlParams.get('dataJogo');
+        const local = urlParams.get('localJogo');
+        const codigoIngresso = Math.random().toString(36).substring(2, 10).toUpperCase();
+
+
+        // Atualiza os dados na página
+        document.getElementById('info-jogo').textContent = `Jogo: ${jogo}`;
+        document.getElementById('nome-ingresso').textContent = `Nome: ${nome}`;
+        document.getElementById('info-data').textContent = `Data: ${data}`;
+        document.getElementById('info-local').textContent = `Local: ${local}`;
+        document.getElementById('info-totalPago').textContent = `Total: R$ ${total}`;
+        document.getElementById('info-codigoIngresso').textContent = `Código do Ingresso: R$ ${codigoIngresso}`;
+
+
+
+
+        // Preenche os campos hidden com os dados para envio
+        // document.getElementById('jogo').value = jogo;
+        // document.getElementById('total').value = total;
+        // document.getElementById('nome').value = nome;
+        // document.getElementById('email').value = email;
+        // document.getElementById('data').value = data;
+        // document.getElementById('local').value = local;
+
+    </script>
+
+</body>
+
+</html>
